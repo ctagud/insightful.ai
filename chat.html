@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="chat-container mx-auto">
+    <a href="index.html">
+        <div class="chat text-start" style="">Insightful.AI</div>
+    </a>
+    <div class="chat-messages" id="chatMessages">
+        <!-- Chat messages will be appended here dynamically -->
+    </div>
+    <div class="input-container">
+        <input type="text" id="inputMessage" class="input-message" placeholder="Type your message..." onkeydown="if(event.keyCode===13){sendMessage();}">
+        <input type="button" class="upload-button" value="Upload File" onclick="document.getElementById('fileInput').click()">
+        <input type="file" id="fileInput" class="file-input" onchange="handleFileUpload(event)">
+
+        <button class="stop-button" onclick="stopResponses()">Stop</button>
+
+    </div>
+</div>
+
+<!-- New Chat Modal 
+<div id="newChatModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>New Chat</h2>
+        <p>Start a new chat session:</p>
+     
+    </div>
+</div>
+
+
+
+ Add chat form or additional elements here -->
+
+
+<script>
+
+document.getElementById('inputMessage').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+});
+
+function sendMessage() {
+    const inputMessage = document.getElementById('inputMessage');
+    const userInput = inputMessage.value.trim();
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+
+    if (userInput !== '' || file) {
+        displayUserMessage(userInput, file);
+
+        // Process user input and provide bot response
+        generateBotResponses(userInput);
+
+        // Clear input field and file input
+        inputMessage.value = '';
+        fileInput.value = '';
+    }
+}
+
+function displayUserMessage(userInput, file) {
+    const messageContainer = document.getElementById('chatMessages');
+    const userMessage = document.createElement('div');
+    userMessage.classList.add('message', 'user-message');
+    userMessage.textContent = userInput;
+    if (file) {
+        const fileLink = document.createElement('a');
+        fileLink.href = URL.createObjectURL(file);
+        fileLink.download = file.name;
+        fileLink.textContent = file.name;
+        userMessage.appendChild(document.createElement('br'));
+        userMessage.appendChild(fileLink);
+    }
+    messageContainer.appendChild(userMessage);
+}
+
+function generateBotResponses(userInput) {
+    switch (userInput.toLowerCase()) {
+        case 'hi':
+        case 'yo':
+            displayBotResponse('Hi, how can I assist you?');
+            break;
+        case 'how are you?':
+        case 'how are you':
+        case 'how are u':
+            displayBotResponse('I\'m doing well, thank you! How about you?');
+            break;
+        case 'tell me a joke':
+        case 'joke':
+        case 'make me laugh':
+            displayBotResponse('Why don\'t scientists trust atoms? Because they make up everything!');
+            break;
+        case 'what\'s the weather like today?':
+        case 'weather':
+        case 'weather today':
+        case 'show me the weather':
+            displayBotResponse('I cannot provide real-time weather information at the moment.');
+            break;
+        case 'help':
+        case 'help me':
+        case 'i need help':
+            displayBotResponse('Sure, what can I assist you with?');
+            break;
+        default:
+            displayBotResponse('I didn\'t understand that.');
+            break;
+        case 'show me an image':
+        case 'give me an image':
+        case 'please show me an image':
+        case 'can u show me an image':
+            displayBotResponse('<img src="" alt="Sample Image" style="max-width: 100%;">');
+            break;
+        case 'please show me an image based on the antibiotics dataset':
+        case 'show me an image based on the antibiotics dataset':
+        case 'show me a graph for Age':
+            displayBotResponse('<img src="img/age.png" alt="Sample Image" style="max-width: 100%;">');
+            break;
+    }
+}
+
+function displayBotResponse(response) {
+    const messageContainer = document.getElementById('chatMessages');
+    const botMessage = document.createElement('div');
+    botMessage.classList.add('message', 'bot-message');
+    botMessage.innerHTML = response;
+    messageContainer.appendChild(botMessage);
+}
+
+function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (file.name === 'awareness_of_whether_viral_infection_cured_by_antibiotics (1).xlsx') {
+        const messageContainer = document.getElementById('chatMessages');
+        const systemMessage = document.createElement('div');
+        systemMessage.classList.add('message', 'system-message');
+        systemMessage.textContent = 'File "awareness_of_whether_viral_infection_cured_by_antibiotics.xlsx" has been uploaded.';
+        messageContainer.appendChild(systemMessage);
+
+        const botResponse = 'Thank you for uploading the file. I will now analyze the data.';
+        displayBotResponse(botResponse);
+
+        // Pass the file to your chatbot script for analysis
+        analyzeExcelData(file);
+    }
+}
+
+function analyzeExcelData(file) {
+    // Your logic to analyze the dataset goes here
+
+    // Assuming analysis is complete, call generateStoryFromData()
+    const story = generateStoryFromData();
+    displayStoryInChat(story);
+}
+
+function generateStoryFromData() {
+    // Your logic to generate the story from the analyzed dataset goes here
+    // For demonstration, I'm returning an array of sections
+    const story = `
+        Imagine a bustling city where people from all walks of life gather, each with their own unique beliefs and perspectives. In this diverse community, a study was conducted to understand people's perceptions regarding the curability of a particular illness.
+        ***Gender***
+        Women:
+        - 23% are optimistic, believing the illness can usually be cured.
+        - 23% remain unsure, lacking sufficient information.
+        - 54% harbor doubts, convinced the illness cannot be cured.
+        Men:
+        - 30% exude confidence, asserting the illness can usually be cured.
+        - 34% are in the dark, uncertain about the illness's curability.
+        - 36% share skepticism, believing the illness cannot be cured.
+        ***Income***
+        Those earning less than $40,000:
+        - 30% hold hope, believing in a cure.
+        - 39% grapple with uncertainty, lacking clarity.
+        - 31% resign to fate, believing the illness is incurable.
+        Those earning $40,000 - $89,999:
+        - 25% maintain optimism, seeing a path to recovery.
+        - 27% remain on the fence, unsure about the illness's prognosis.
+        - 48% harbor skepticism, doubting the possibility of a cure.
+        Those earning $90,000 or more:
+        - 22% express confidence, believing in the power of treatment.
+        - 16% are puzzled, seeking answers about the illness.
+        - 62% adopt a pragmatic stance, accepting the reality of an incurable illness.
+        ***Age***
+        Ages 18-64:
+        - 27% embrace hope, believing in the potential for a cure.
+        - 26% are uncertain, seeking clarity on the matter.
+        - 47% face skepticism, doubting the effectiveness of treatment.
+        Ages 65 and older:
+        - 24% maintain faith, hopeful for a cure.
+        - 38% are perplexed, uncertain about the illness's nature.
+        - 38% accept reality, acknowledging the challenges of treating the illness.
+        ***Education***
+        High school diploma or less:
+        - 33% hold onto optimism, believing in the possibility of a cure.
+        - 42% grapple with uncertainty, seeking clarity.
+        - 26% embrace realism, accepting the limitations of treatment.
+    `;
+
+    // Split the story into main sections
+    const sections = story.split('***').filter(section => section.trim() !== '');
+
+    return sections;
+}
+
+let stopFlag = false;
+
+function stopResponses() {
+    stopFlag = true;
+}
+
+function displayStoryInChat() {
+    const sections = generateStoryFromData();
+    const messageContainer = document.getElementById('chatMessages');
+    let delay = 1000; // Initial delay for the first message
+
+    sections.forEach((section) => {
+        const lines = section.trim().split('\n');
+        let paragraph = ''; // Initialize paragraph string
+
+        lines.forEach((line) => {
+            if (line.includes('-')) {
+                // Keep lines with "-" intact within the same paragraph
+                paragraph += `${line.trim()} `;
+            } else {
+                // If line does not contain "-", create a new paragraph
+                if (paragraph.trim() !== '') {
+                    setTimeout(() => {
+                        if (stopFlag) return; // Check if stop flag is set
+                        displayBotResponse(paragraph.trim());
+                    }, delay);
+
+                    delay += 1000; // Increment delay for each message
+                    paragraph = ''; // Reset paragraph string
+                }
+
+                // Display non-dashed lines as separate paragraphs
+                setTimeout(() => {
+                    if (stopFlag) return; // Check if stop flag is set
+                    displayBotResponse(line.trim());
+                }, delay);
+
+                delay += 1000; // Increment delay for each message
+            }
+        });
+
+        // Check if there's any remaining content in the last paragraph
+        if (paragraph.trim() !== '') {
+            setTimeout(() => {
+                if (stopFlag) return; // Check if stop flag is set
+                displayBotResponse(paragraph.trim());
+            }, delay);
+
+            delay += 1000; // Increment delay for each message
+        }
+    });
+}
+
+
+
+
+</script>
+</body>
+</html>
