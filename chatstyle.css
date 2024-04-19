@@ -1,0 +1,396 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200;300;400;600;700&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;800&display=swap');
+
+  body {
+
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;    
+    background-color: #17171e;
+
+
+/*
+  background-image: url('img/lines.png');
+  background-size: cover; /* Adjusts the background image size to cover the entire viewport */
+}
+
+
+
+.headerimg {
+width: 72%;
+}
+
+nav a{
+  border-bottom: 1px solid #333;
+  justify-content: space-evenly;
+  font-size: 20px;
+  padding: 0 20px;
+  color: #ffff;
+
+}
+.nav-link:hover {
+  color: #5D45FD;
+}
+
+.nav-link {
+  color: rgb(218, 218, 218);
+}
+
+p {
+  font-weight: 300;
+}
+
+.nav-item {
+  position: relative; /* Required for positioning the line */
+  border-bottom: 1px solid #333;
+  padding: 0 20px;
+  color: #ffff;
+  border-bottom: 1px solid #333;
+  justify-content: space-evenly;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 0 20px;
+}
+  
+.bi {
+  
+}
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .hero {
+    position: relative;
+    overflow: hidden;
+    height: 120vh;
+    background-image: url('img/oooscillate.svg'); /* Replace 'path/to/your/image.jpg' with the path to your image */
+    background-size: cover; /* Ensures the background image covers the entire element */
+    background-position: center; /* Centers the background image */
+  }
+  
+  .big {
+    padding-top: 200px;
+  }
+  
+  .nav-item:hover {
+    color: #5D45FD;
+  }
+
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+  }
+
+  .card-img-top {
+    height: 40vh; /* Set the maximum height for the images */
+    object-fit: cover; /* Ensure the images cover the entire container */
+    border-radius: 8px 8px 0px 0px;
+
+  }
+
+  .card {
+    border-radius: 8px;
+  }
+
+  .card-body {
+    height: 15vh;
+  }
+
+  
+  h1 {
+    font-weight: 1000px;
+    color: white;
+  
+  }
+
+  h2, h3, h4 {
+    color: white
+  }
+  
+  /*start of popup*/
+  .exclusions {
+    font-family: Georgia;
+    font-size: 8pt;
+    letter-spacing: 1px;
+    text-shadow: none;
+    font-style: normal;
+  }
+  
+  .box {
+    width: 40%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 35px;
+    border: 2px solid #fff;
+    border-radius: 20px/50px;
+    background-clip: padding-box;
+    text-align: center;
+  }
+  
+
+  .material-symbols-outlined {
+    color: #5D45FD;
+  }
+
+  
+
+
+  /*.button {
+    font-size: 1em;
+    padding: 10px;
+    color: #fff;
+    border: 2px solid #06D85F;
+    border-radius: 20px/50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+  }
+  .button:hover {
+    background: #06D85F;
+  }*/
+  
+  
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 2px;
+    width: 60%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+
+  }
+  
+  
+  .popup .close {
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #a6a6a6;
+  }
+  
+  section {
+    padding: 60px 0 60px 0;
+  }
+
+  hr {
+    color: white;
+  }
+
+  /*vertical lines */
+
+
+
+/* CHAT GPT */
+
+/* CSS for ChatGPT-like UI */
+
+  
+  
+  .chat {
+    border-color: #5D45FD;
+    border-bottom: 1px;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-weight: ;
+    border-radius: 0px;
+  }
+  
+  .chat-messages {
+    padding: 10px;
+    overflow-y: auto;
+    height: 300px;
+  }
+  
+  .message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+  }
+  
+  .user-message {
+    color: #fff;
+    align-self: flex-end;
+
+  }
+
+
+  .input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-color: #6e40ff;
+    ;
+  }
+  
+  .input-field {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 10px;
+    font-size: 1rem;
+    border-color: #6e40ff;
+
+  }
+  
+  .send-button {
+    padding: 8px 20px;
+    background-color: #6e40ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .content {
+    height: 100%
+  }
+  .chat-container {  
+    width: 90%;
+    height: 100%; /* Fill the entire screen vertically */
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    display: flex; /* Use flexbox to align chat messages */
+    flex-direction: column; /* Align chat messages vertically */
+  }
+  
+  .chat-messages {
+    flex: 1; /* Allow chat messages to expand and fill available space */
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  .message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+  }
+  
+
+.user-message {
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.bot-message {
+    background-color: #333;
+    color: white;
+    padding-top: 10px;
+    align-self: flex-start;
+    text-align: left;
+    border-radius: 20px;
+}
+/* Modern Input Message Style */
+.input-message {
+    width: calc(100% - 80px); /* Adjust width as needed */
+    padding: 10px; /* Add padding */
+    border-radius: 20px; /* Add border radius for rounded corners */
+    font-size: 16px; /* Set font size */
+    color: #333; /* Set text color */
+    border: 1px solid;
+    border-color: #6e40ff;
+    background-color: #23222b;
+  }
+
+  a {
+      text-decoration: none;
+  }
+  
+  .input-message:focus {
+    border-color: #6e40ff; /* Change border color on focus */
+    
+  }
+  
+
+
+/* file upload */
+
+
+.file-input {
+  margin-left: 10px;
+  display: none; /* Hide the file input by default */
+}
+
+.upload-button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.upload-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-message {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.button-container {
+  display: flex;
+}
+
+.upload-button,
+.share-button,
+.stop-button {
+  padding: 8px 12px;
+  margin-left: 5px; /* Adjust the margin as needed */
+  border: none;
+  background-color: #007bff; /* Adjust the background color as needed */
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-button:hover,
+.share-button:hover,
+.stop-button:hover {
+  background-color: #0056b3; /* Adjust the hover color as needed */
+}
+
+
+.openFeedbackBtn {
+  background-color: #6e40ff;
+}
