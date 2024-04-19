@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="chatstyle.css">
+
+    <link rel="icon" href=
+    "img/star.png"
+              type="image/x-icon">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-..."
+        crossorigin="anonymous">
+        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-top-right.css' rel='stylesheet'>
+
+    <title>Home</title>
+  </head>
+
+  <style>
+
+    
+    .card-img-top {
+      height: 40vh; /* Set the maximum height for the images */
+      object-fit: cover; /* Ensure the images cover the entire container */
+    }
+
+    .card-body {
+      height: 15vh;
+    }
+
+.btn {
+  background-color: transparent;
+  border-color: purple;
+}
+.btn:hover {
+  background: #06D85F;
+}
+
+p {
+  color:white;
+}
+
+code{
+  background-color: black;
+  display: block;
+  margin: 10px;
+  padding: 30px;
+  border-radius: 5px
+}
+
+.feedback-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #17171e;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  width: 80vh;
+}
+
+.feedback-form {
+  text-align: center;
+}
+
+.feedback-form textarea,
+.feedback-form input[type="number"] {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.feedback-form label {
+  display: block;
+  margin-bottom: 5px;
+  color:white
+}
+
+.feedback-form button {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.feedback-form button:hover {
+  background-color: #0056b3;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #555;
+}
+
+
+    
+  </style>
+  
+
+
+  <body>
+
+    <header id="home" class="header">
+
+      <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="border-right: 0.5px solid gray">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-5 d-none d-sm-inline">Menu</span>
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                     
+                        <li>
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">How to Generate Text</span> </a>
+                            <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">How to Generate Charts</span> 1 </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
+                        </li>
+                        <li>
+                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
+                                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+                        </li>
+                    </ul>
+                    <hr>
+                
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                </div>
+            </div>
+
+            <div class="col py-3">
+
+              <div class="container w-75 py-3">
+
+
+                <h2 class="py-3">How to generate charts</h2>
+
+
+
+              <h4 class="">Stage 1: x-Axis and y-Axis Label Entity Recognition</h4>
+
+  <p>
+  Neural Networks were built which were trained and fed with representations of words in a way that a computer can understand. 
+  Seperate models are built to identify the X axis - referred to as the "independent variable" which are categorical and the Y axis(dependent variable) which is numerical.
+  </p>
+  <br>
+  <div class="col-md-12 text-center">
+
+  <img src="img/architecture.png" class="img-fluid w-50 m-auto text-center align-items-center" alt="">
+  </div>
+<br><br>
+  <p>The architecture above shows how data is "inputted" to the model and how it is processed. Based on the data, it will make a prediction or result, which is known as an "output"
+    
+    Between this, the model uses Bi-directional LTSM networks.
+     It is capable of learning long-term dependencies in data sequences which allows it to retain certain information for longer. The data is then passed to the
+     time-distribution layer and dense layer to classify each word index that falls into a category of a
+     respected entity or not. </p>
+
+
+
+     <li class="">
+      <code>
+        function MyButton() {
+          return (< button > I'm a button < /button >); </code>
+    </li>
+
+<br><br>
+  <h4 class="">Stage 2: Mapping</h4>
+
+
+  <p>The x variable is then mapped with the y. Mapping is
+    dependent on the distances between the corresponding entities. We call it our baseline model
+    for this task</p>
+
+     <p>
+      Empower your audience with clear and concise data visualizations using our Text to Chart tool. Whether you're presenting findings to stakeholders, sharing insights with colleagues, or engaging your audience online, our tool makes it easy to create professional-quality charts from your text data. From simple bar charts to interactive dashboards, our feature-rich platform has everything you need to turn text into captivating visuals.
+
+      Simply type your text or upload your dataset file, the system will simply scan it and you will be able to 
+     </p>
+     
+
+     <li class="">
+      <code>
+        function MyButton() {
+          return (< button > I'm a button < /button >); </code>
+    </li>
+
+    <p class="py-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi facilis natus facere ex aspernatur officiis accusantium accusamus sit qui incidunt, culpa a atque modi dolore maiores praesentium est repellat mollitia?</p>
+
+
+<section>
+  <h3>Guides</h3>
+</section>
+
+
+
+<button id="openFeedbackBtn">Give Feedback</button>
+
+
+<div id="feedbackPopup" class="feedback-popup">
+  <button id="closeFeedbackBtn" class="close-btn">&times;</button> <!-- Close button -->
+  <div class="feedback-form">
+    <h2>Documentation Feedback</h2>
+    <p>We value your feedback! Please let us know how we can improve our documentation.</p>
+    <form id="feedbackForm" action="submit_feedback.php" method="post">
+      <textarea name="feedback" placeholder="Enter your feedback here" rows="4" required></textarea>
+      <label for="rating">Rate the documentation:</label>
+      <input type="number" id="rating" name="rating" min="1" max="5" required>
+      <label for="helpful">Was this documentation helpful?</label>
+      <input type="checkbox" id="helpful" name="helpful">
+      <input type="text" name="name" placeholder="Your name">
+      <input type="email" name="email" placeholder="Your email">
+      <input type="text" name="organization" placeholder="Your organization">
+      <button type="submit">Submit</button>
+    </form>
+    <div class="thank-you" style="display: none;">
+      <p>Thank you for your feedback!</p>
+    </div>
+  </div>
+</div>
+</head>
+
+
+
+<script src="feedback.js"></script>
+</body>
+</html>
+
+
+  </div>
+</div>
+
+
+
+
+
+    <!--lightbox style popup goes here-->
+   
+
+
+    
+
+
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const hero = document.getElementById('hero');
+      hero.style.backgroundPositionY = -scrolled * 0.5 + 'px'; // Adjust the speed of parallax scrolling here
+    });
+
+
+    document.getElementById('openFeedbackBtn').addEventListener('click', function() {
+  document.getElementById('feedbackPopup').style.display = 'block';
+});
+
+document.getElementById('closeFeedbackBtn').addEventListener('click', function() {
+  document.getElementById('feedbackPopup').style.display = 'none';
+});
+
+document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission for demonstration purposes
+  document.getElementById('feedbackForm').reset(); // Reset form
+  document.getElementById('feedbackPopup').style.display = 'none'; // Hide popup
+  document.querySelector('.thank-you').style.display = 'block'; // Show thank you message
+});
+
+  </script>
+
+  
+      
+</body>
