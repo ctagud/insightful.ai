@@ -25,6 +25,38 @@
 
   <body>
 
+
+    <style>
+      
+      .card-img-top {
+        height: 40vh; /* Set the maximum height for the images */
+        object-fit: cover; /* Ensure the images cover the entire container */
+      }
+
+      .card-body {
+        height: 15vh;
+      }
+
+
+
+  .btn-primary {
+
+background-color: transparent;
+padding: 15px;
+border-color: #5D45FD;
+
+}
+
+.btn:hover, .btn-primary:hover {
+background-color: #5D45FD;
+border-color: transparent;
+}
+
+
+
+      
+    </style>
+
     <header id="home" class="header">
 
 
@@ -33,13 +65,13 @@
         
 
         <li class="nav-item">
-          <a class="nav-link active" href="#">Home</a>
+          <a class="nav-link active" href="index.html">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Technologies</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Documentation</a>
+          <a class="nav-link" href="Documentation.html">Documentation</a>
         </li>
       </ul>
       
@@ -65,12 +97,9 @@
 -->
 
 <div class="hero">
-  <div class="container">
-
-    
+  <div class="container">    
     <div class="big mt-5 text-center"> <!-- Added text-center class to center the content -->
       <br><br>
-
       <img src="img/Picture 1.png" class="img-fluid text-center m-auto headerimg" alt="">
 
       <br>
@@ -91,31 +120,31 @@
 </div>
 
     <!--lightbox style popup goes here-->
-    <style>
-      .card-img-top {
-        height: 40vh; /* Set the maximum height for the images */
-        object-fit: cover; /* Ensure the images cover the entire container */
-      }
-
-      .card-body {
-        height: 15vh;
-      }
-      
-    </style>
+   
     
-    <div class="container">
+    <div class="container text-dark">
       <h2 class="display-4">Latest News</h2>
       <br>
       <div class="row">
+
         <div class="col-md-4">
+          <a href="News.html">
+
           <div class="card">
             <img src="img/box 4.jpg" class="card-img-top" alt="Image 1">
+            
+
             <div class="card-body">
               <h5 class="card-title">Revolutionizing Reporting</h5>
+
+
               <p class="card-text">AI Writes Compelling Data Stories</p>
             </div>
+          </a>
+
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="card">
             <img src="img/box 1.jpg" class="card-img-top" alt="Image 2">
@@ -125,12 +154,14 @@
             </div>
           </div>
         </div>
+
+
         <div class="col-md-4">
           <div class="card">
             <img src="img/box 3.jpg" class="card-img-top" alt="Image 3">
             <div class="card-body">
-              <h5 class="card-title">Box 3</h5>
-              <p class="card-text">This is the content of Box 3.</p>
+              <h5 class="card-title">Navigating the Data Deluge </h5>
+              <p class="card-text">Insightful AI's Solutions for Today's Challenges.</p>
             </div>
           </div>
         </div>
@@ -161,22 +192,29 @@
               <img src="https://images.pexels.com/photos/17483907/pexels-photo-17483907/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-concept-of-artificial-general-intelligence-agi-it-was-created-by-domhnall-malone-as-part-of-the-visua.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Description" class="card-img-top" 
               style="border-radius: 12px;">
 
-                <h5 class="card-title mt-3">Transformer Architecture</h5>
+                <h5 class="card-title mt-3 text-center">Transformer Architecture</h5>
           </div>
 
           <div class="col-md-4">
             <img src="img/box 6.jpg" alt="Description" class="card-img-top" 
             style="border-radius: 12px;">
 
-              <h5 class="card-title mt-3">RNN</h5>
+              <h5 class="card-title mt-3 text-center">RNN</h5>
         </div>
         
+
         <div class="col-md-4">
+          <a href="Text2Chart.html">
           <img src="https://images.pexels.com/photos/17484901/pexels-photo-17484901/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-boundaries-set-in-place-to-secure-safe-accountable-biotechnology-it-was-created-by-artist-khyati-treha.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Description" class="card-img-top" 
           style="border-radius: 12px;">
+        </a>
 
-            <h5 class="card-title mt-3">Text 2 Chart</h5>
+            <h5 class="card-title mt-3 text-center">Text 2 Chart</h5>
       </div>
+
+
+
+
            
 
     </div>
@@ -210,7 +248,7 @@
              and watch as our technology transforms raw information into compelling and engaging stories
             </p>
 
-            <a href="Insightful.html">
+            <a href="Documentation.html">
               <button type="button" class="btn btn-primary btn-lg mt-3">            
                  Learn More
                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right mx-auto p-auto" viewBox="0 0 16 16">
