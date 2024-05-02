@@ -59,91 +59,107 @@
 
 
     <script>
-        document.getElementById('inputMessage').addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        });
-        
-        function sendMessage() {
-            const inputMessage = document.getElementById('inputMessage');
-            const userInput = inputMessage.value.trim();
-            const fileInput = document.getElementById('fileInput');
-            const file = fileInput.files[0];
-        
-            if (userInput !== '' || file) {
-                displayUserMessage(userInput, file);
-        
-                // Process user input and provide bot response
-                generateBotResponses(userInput);
-        
-                // Clear input field and file input
-                inputMessage.value = '';
-                fileInput.value = '';
-            }
-        }
-        
-        function displayUserMessage(userInput, file) {
-            const messageContainer = document.getElementById('chatMessages');
-            const userMessage = document.createElement('div');
-            userMessage.classList.add('message', 'user-message');
-            userMessage.textContent = userInput;
-            if (file) {
-                const fileLink = document.createElement('a');
-                fileLink.href = URL.createObjectURL(file);
-                fileLink.download = file.name;
-                fileLink.textContent = file.name;
-                userMessage.appendChild(document.createElement('br'));
-                userMessage.appendChild(fileLink);
-            }
-            messageContainer.appendChild(userMessage);
-        }
-        
-        function generateBotResponses(userInput) {
-            switch (userInput.toLowerCase()) {
-                case 'hi':
-                case 'yo':
-                    displayBotResponse('Hi, how can I assist you?');
-                    break;
-                case 'how are you?':
-                case 'how are you':
-                case 'how are u':
-                    displayBotResponse('I\'m doing well, thank you! How about you?');
-                    break;
-                case 'tell me a joke':
-                case 'joke':
-                case 'make me laugh':
-                    displayBotResponse('Why don\'t scientists trust atoms? Because they make up everything!');
-                    break;
-                case 'what\'s the weather like today?':
-                case 'weather':
-                case 'weather today':
-                case 'show me the weather':
-                    displayBotResponse('I cannot provide real-time weather information at the moment.');
-                    break;
-                case 'help':
-                case 'help me':
-                case 'i need help':
-                    displayBotResponse('Sure, what can I assist you with?');
-                    break;
-                    case 'please show me an image based on the antibiotics dataset':
-        case 'show me an image based on the antibiotics dataset':
-        case 'show me a graph for Age':
-        case 'show me a graph for age':
-            displayBotResponse('<img src="img/age.png" alt="Sample Image" style="max-width: 100%;">');
+       
+document.getElementById('inputMessage').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+});
+
+function sendMessage() {
+    const inputMessage = document.getElementById('inputMessage');
+    const userInput = inputMessage.value.trim();
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+
+    if (userInput !== '' || file) {
+        displayUserMessage(userInput, file);
+
+        // Process user input and provide bot response
+        generateBotResponses(userInput);
+
+        // Clear input field and file input
+        inputMessage.value = '';
+        fileInput.value = '';
+    }
+}
+
+function displayUserMessage(userInput, file) {
+    const messageContainer = document.getElementById('chatMessages');
+    const userMessage = document.createElement('div');
+    userMessage.classList.add('message', 'user-message');
+    userMessage.textContent = userInput;
+    if (file) {
+        const fileLink = document.createElement('a');
+        fileLink.href = URL.createObjectURL(file);
+        fileLink.download = file.name;
+        fileLink.textContent = file.name;
+        userMessage.appendChild(document.createElement('br'));
+        userMessage.appendChild(fileLink);
+    }
+    messageContainer.appendChild(userMessage);
+}
+
+function generateBotResponses(userInput) {
+    switch (userInput.toLowerCase()) {
+        case 'hi':
+        case 'yo':
+            displayBotResponse('Hi, how can I assist you?');
             break;
-                    displayBotResponse('I didn\'t understand that.');
-                    break;
-                 case 'different version':
-            // Generate and display a different version of the story
+        case 'how are you?':
+        case 'how are you':
+        case 'how are u':
+            displayBotResponse('I\'m doing well, thank you! How about you?');
+            break;
+        case 'tell me a joke':
+        case 'joke':
+        case 'make me laugh':
+            displayBotResponse('Why don\'t scientists trust atoms? Because they make up everything!');
+            break;
+        case 'what\'s the weather like today?':
+        case 'weather':
+        case 'weather today':
+        case 'show me the weather':
+            displayBotResponse('I cannot provide real-time weather information at the moment.');
+            break;
+        case 'help':
+        case 'help me':
+        case 'i need help':
+            displayBotResponse('Sure, what can I assist you with?');
+            break;
+        default:
+            displayBotResponse('I didn\'t understand that.');
+            break;
+        case 'show me an image':
+        case 'give me an image':
+        case 'please show me an image':
+        case 'can u show me an image':
+            displayBotResponse('<img src="" alt="Sample Image" style="max-width: 100%;">');
+            break;
+        case 'please show me an image based on the antibiotics dataset':
+        case 'show me an image based on the antibiotics dataset':
+        case 'show me an image based on age':
+            displayImage('<img src="img/age.png" alt="Sample Image" style="max-width: 100%;">', 'chatMessages');
+            break;
+            case 'different version':
+        case 'new response':
             generateDifferentVersion();
             break;
-            default:
-
-            }
-        }
-
-            
+            displayBotResponse('I didn\'t understand that.');
+            break;
+    }
+}
+function displayImage(imageHtml, containerId) {
+    const container = document.getElementById(containerId);
+    if (container) {
+        const imgContainer = document.createElement('div');
+        imgContainer.classList.add('message', 'bot-message');
+        imgContainer.innerHTML = imageHtml;
+        container.appendChild(imgContainer);
+    } else {
+        console.error('Error: Container element not found.');
+    }
+}
 
 
         function generateDifferentVersion() {
@@ -208,7 +224,7 @@
             // Display the different version of the story
             displayStoryInChat(sections);
         }
-        
+
 
         
         function displayBotResponse(response) {
